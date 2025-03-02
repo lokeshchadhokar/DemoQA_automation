@@ -1,6 +1,6 @@
 import pytest
 from selenium import webdriver
-from DemoQawithJinkins.pages.home_page import HomePage
+from ..pages.home_page import HomePage
 
 @pytest.mark.sanity
 def test_navifate_to_home(driver):
