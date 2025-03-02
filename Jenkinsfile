@@ -6,17 +6,17 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/lokeshchadhokar/DemoQA_automation.git'
+                git 'https://lokeshchadhokar@github.com/lokeshchadhokar/DemoQA_automation.git'
             }
         }
         stage('Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
+                bat 'pip install -r requirements.txt'
             }
         }
         stage('Run Tests') {
             steps {
-                sh "pytest -m ${params.TEST_TYPE} -v --html=report.html"
+                bat "pytest -m %TEST_TYPE% -v --html=report.html"
             }
         }
         stage('Generate Report') {
