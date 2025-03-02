@@ -9,20 +9,20 @@ pipeline {
                 git 'https://lokeshchadhokar@github.com/lokeshchadhokar/DemoQA_automation.git'
             }
         }
-        stage('Install Dependencies') {
-            steps {
-                bat 'pip install -r requirements.txt'
-            }
-        }
+//         stage('Install Dependencies') {
+//             steps {
+//                 bat 'pip install -r requirements.txt'
+//             }
+//         }
         stage('Run Tests') {
             steps {
                 bat "pytest -m %TEST_TYPE% -v --html=report.html"
             }
         }
-        stage('Generate Report') {
-            steps {
-                archiveArtifacts artifacts: 'report.html', fingerprint: true
-            }
+//         stage('Generate Report') {
+//             steps {
+//                 archiveArtifacts artifacts: 'report.html', fingerprint: true
+//             }
         }
     }
 }
