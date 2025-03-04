@@ -1,5 +1,7 @@
 
 url: "https://demoqa.com/"
-browser: "chrome"
+browser:
+  driver: "chrome"
+  headless: "yes"
 timeout: 10
 

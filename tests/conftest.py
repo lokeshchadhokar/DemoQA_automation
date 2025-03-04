@@ -9,8 +9,13 @@ def config():
 
 @pytest.fixture(scope="function")
 def driver(config):
-    if config["browser"] == "chrome":
-        driver = webdriver.Chrome()
+    options = webdriver.ChromeOptions()
+    if config["browser"]["driver"] == "chrome":
+        if config["browser"]["headless"].lower() == "yes".lower():
+            options.add_argument("--headless")
+            driver = webdriver.Chrome(options=options)
+        else :
+            driver = webdriver.Chrome()
     else:
         raise ValueError(f"Browser {config['browser']} not supported!")
     driver.get(config["url"])
